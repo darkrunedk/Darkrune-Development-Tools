@@ -15,14 +15,10 @@ namespace Darkrune_Development_Tools.Commands
 
         public void Execute(object parameter)
         {
-            string textToCopy;
+            string textToCopy = "";
             if (parameter is TextBox textBox)
             {
                 textToCopy = textBox.Text;
-            }
-            else
-            {
-                textToCopy = parameter.ToString();
             }
 
             if (!string.IsNullOrWhiteSpace(textToCopy))

@@ -1,0 +1,21 @@
+﻿<Page x:Class="Darkrune_Development_Tools.Views.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Darkrune_Development_Tools.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Home">
+    <Page.Content>
+        <StackPanel Margin="5">
+            <TextBlock Text="This tool is very early in development and might not have a lot of uses for now." Margin="5" Padding="5" Foreground="IndianRed" FontWeight="Bold" />
+
+            <TextBlock>
+                <Run Text="Available tools:" />
+                <LineBreak />
+                <Hyperlink NavigateUri="/Views/DevOpsConfigSettings.xaml">Devops settings</Hyperlink>
+            </TextBlock>
+        </StackPanel>
+    </Page.Content>
+</Page>

@@ -7,57 +7,7 @@
         xmlns:viewModel="clr-namespace:Darkrune_Development_Tools.ViewModel"
         mc:Ignorable="d"
         Title="Darkrune Development Tools" Height="450" Width="800" WindowStartupLocation="CenterScreen">
-    <Window.DataContext>
-        <viewModel:MainViewModel />
-    </Window.DataContext>
-    <Window.CommandBindings>
-        <CommandBinding Command="Open" Executed="OpenCommand_Executed" />
-    </Window.CommandBindings>
-    <Window.InputBindings>
-        <KeyBinding Key="O" Modifiers="Ctrl" Command="Open" />
-    </Window.InputBindings>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <DockPanel>
-            <Menu DockPanel.Dock="Top">
-                <MenuItem Header="_File">
-                    <MenuItem Header="_Open" Command="Open" InputGestureText="Ctrl+O" />
-                </MenuItem>
-            </Menu>
-        </DockPanel>
-
-        <StackPanel Grid.Row="1">
-            <ListView x:Name="ConfigList" Margin="10" d:ItemsSource="{d:SampleData ItemCount=5}">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Key">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBox x:Name="KeyTextBox" Text="{Binding Key}" IsReadOnly="True" Padding="2" HorizontalAlignment="Stretch" />
-                                        <Button Content="Copy" HorizontalAlignment="Right" Command="{Binding CopyCommand}" CommandParameter="{Binding ElementName=KeyTextBox}" DataContext="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" />
-                                    </StackPanel>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="Value">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBox x:Name="ValueTextBox" Text="{Binding Value}" IsReadOnly="True" Padding="2" />
-                                        <Button Content="Copy" HorizontalAlignment="Right" Command="{Binding CopyCommand}" CommandParameter="{Binding ElementName=ValueTextBox}" DataContext="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" />
-                                    </StackPanel>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </StackPanel>
-
+        <Frame Source="/Views/Home.xaml" NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>
