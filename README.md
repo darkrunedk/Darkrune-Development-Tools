@@ -1,6 +1,6 @@
 # Darkrune-Development-Tools
 
-A small tool to help with stuff related to .NET development.
+A small tool to help with stuff related to .NET development. It is very early in development, so the uses of the program might be very limited.
 
 ## What can it help with?
 
