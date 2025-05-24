@@ -4,8 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Darkrune_Development_Tools"
+        xmlns:viewModel="clr-namespace:Darkrune_Development_Tools.ViewModel"
         mc:Ignorable="d"
         Title="Darkrune Development Tools" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <viewModel:MainViewModel />
+    </Window.DataContext>
     <Window.CommandBindings>
         <CommandBinding Command="Open" Executed="OpenCommand_Executed" />
     </Window.CommandBindings>
@@ -33,14 +37,20 @@
                         <GridViewColumn Header="Key">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBox Text="{Binding Key}" IsReadOnly="True" Padding="2" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox x:Name="KeyTextBox" Text="{Binding Key}" IsReadOnly="True" Padding="2" HorizontalAlignment="Stretch" />
+                                        <Button Content="Copy" HorizontalAlignment="Right" Command="{Binding CopyCommand}" CommandParameter="{Binding ElementName=KeyTextBox}" DataContext="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" />
+                                    </StackPanel>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
                         <GridViewColumn Header="Value">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBox Text="{Binding Value}" IsReadOnly="True" Padding="2" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox x:Name="ValueTextBox" Text="{Binding Value}" IsReadOnly="True" Padding="2" />
+                                        <Button Content="Copy" HorizontalAlignment="Right" Command="{Binding CopyCommand}" CommandParameter="{Binding ElementName=ValueTextBox}" DataContext="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" />
+                                    </StackPanel>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>

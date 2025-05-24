@@ -24,7 +24,7 @@ namespace Darkrune_Development_Tools
         {
             OpenFileDialog openFileDialog = new()
             {
-                Filter = "Appsettings files|appsettings*.json"
+                Filter = "Appsettings files|appsettings*.json|Web config files|web*.config"
             };
             if (openFileDialog.ShowDialog() == true)
             {
@@ -37,6 +37,10 @@ namespace Darkrune_Development_Tools
                     case ".json":
                         AppsettingsHandler appsettingsHandler = new();
                         configSettings = appsettingsHandler.ProcessFile(openFileDialog.FileName);
+                        break;
+                    case ".config":
+                        WebConfigHandler webconfigHandler = new();
+                        configSettings = webconfigHandler.ProcessFile(openFileDialog.FileName);
                         break;
                     default:
                         break;
