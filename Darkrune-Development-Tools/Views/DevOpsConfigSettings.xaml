@@ -32,7 +32,7 @@
             </DockPanel>
 
             <StackPanel Grid.Row="1">
-                <ListView x:Name="ConfigList" Margin="10" d:ItemsSource="{d:SampleData ItemCount=5}">
+                <ListView x:Name="ConfigList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="5">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Key">
