@@ -8,14 +8,23 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Home">
     <Page.Content>
-        <StackPanel Margin="5">
-            <TextBlock Text="This tool is very early in development and might not have a lot of uses for now." Margin="5" Padding="5" Foreground="IndianRed" FontWeight="Bold" />
+        <Grid Style="{StaticResource GridPageStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-            <TextBlock>
+            <TextBlock Grid.Row="0" Style="{StaticResource WarningHeader}" Text="This tool is very early in development and might not have a lot of uses for now." />
+
+            <TextBlock Grid.Row="1">
                 <Run Text="Available tools:" />
                 <LineBreak />
                 <Hyperlink NavigateUri="/Views/DevOpsConfigSettings.xaml">Devops settings</Hyperlink>
+                <Run Text="Useful for exporting settings from web.config/appsettings.json files to DevOps" />
+                <LineBreak />
+                <Hyperlink NavigateUri="/Views/StringManipulation.xaml">String manipulation</Hyperlink>
+                <Run Text="Useful for formatting text like a list of ids to a comma seperated string used in SQL" />
             </TextBlock>
-        </StackPanel>
+        </Grid>
     </Page.Content>
 </Page>

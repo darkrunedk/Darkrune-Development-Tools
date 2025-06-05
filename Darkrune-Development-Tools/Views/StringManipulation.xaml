@@ -1,0 +1,44 @@
+﻿<Page x:Class="Darkrune_Development_Tools.Views.StringManipulation"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Darkrune_Development_Tools.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="StringManipulation">
+
+    <Grid Style="{StaticResource GridPageStyle}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="FromTxtBox" Grid.Row="0" Grid.Column="0" Margin="0,0,5,0" Padding="2" AcceptsReturn="True" AcceptsTab="True" />
+
+        <TextBox x:Name="ToTxtBox" Grid.Row="0" Grid.Column="1" Margin="5,0,0,0" Padding="2" AcceptsReturn="True" AcceptsTab="True" IsReadOnly="True" />
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+            <TextBlock Text="Split text on" VerticalAlignment="Center" Margin="4,0,4,0" />
+            <ComboBox x:Name="SeperatorSeletor" VerticalAlignment="Center">
+                <ComboBoxItem Content="Linebreak" IsSelected="True" />
+                <ComboBoxItem Content="," />
+                <ComboBoxItem Content=";" />
+            </ComboBox>
+            <TextBlock Text="and join with" VerticalAlignment="Center" Margin="4,0,4,0" />
+            <ComboBox x:Name="JoinSelector" VerticalAlignment="Center">
+                <ComboBoxItem Content="," IsSelected="True" />
+                <ComboBoxItem Content="Linebreak" />
+                <ComboBoxItem Content=";" />
+            </ComboBox>
+
+            <Button x:Name="ExecuteActionBtn" Content="Submit" VerticalAlignment="Center" Margin="4,0,0,0" Padding="4,2,4,2" Click="ExecuteActionBtn_Click" />
+        </StackPanel>
+
+        
+    </Grid>
+</Page>
