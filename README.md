@@ -4,6 +4,11 @@ A small tool to help with stuff related to .NET development. It is very early in
 
 ## What can it help with?
 
-For now the tool can help with quickly identifying the things needed for setting up devops variables based on either a appsettings.json (.NET Core) file or a web.config file (.NET framework).
+The program is in very early development, so the amount of tools it might offer is limited at this point. Below is a table that gives a good idea of what it can offer currently.
 
-It will create a list with all identified key/value pairs and copy buttons for each key/value.
+### Available tools
+
+| Name | Description |
+| ------------- | ------------- |
+| Devops Settings | Can find appsettings and connection strings in appsettings.json and web.config files, making it easier to set up variables in DevOps. |
+| String Manipulation | Can be used to change a line seperated list of ids to a comma seperated list with a few button clicks. |
