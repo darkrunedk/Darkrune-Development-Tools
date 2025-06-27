@@ -8,6 +8,22 @@
         mc:Ignorable="d"
         Title="Darkrune Development Tools" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Frame Source="/Views/Home.xaml" NavigationUIVisibility="Hidden" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="18" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <DockPanel Grid.Row="0">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_Home" Click="MenuItem_Click" CommandParameter="/Views/Home.xaml" />
+                <MenuItem x:Name="ToolsMenuItem" Header="_Tools">
+                    <MenuItem Header="_DevOps Settings" Click="MenuItem_Click" CommandParameter="/Views/DevOpsConfigSettings.xaml" />
+                    <MenuItem Header="_String Manipulation" Click="MenuItem_Click" CommandParameter="/Views/StringManipulation.xaml" />
+                </MenuItem>
+                <MenuItem Header="Check Github" Click="CheckGithub_Click" />
+            </Menu>
+        </DockPanel>
+
+        <Frame x:Name="ViewFrame" Grid.Row="1" Source="/Views/Home.xaml" NavigationUIVisibility="Hidden" Navigating="ViewFrame_Navigating" />
     </Grid>
 </Window>

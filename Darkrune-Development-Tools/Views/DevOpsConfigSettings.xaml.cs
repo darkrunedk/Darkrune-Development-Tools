@@ -1,6 +1,7 @@
 ﻿using Darkrune_Development_Tools.Core.ConfigHandlers;
 using Microsoft.Win32;
 using System.IO;
+using System.Windows;
 using System.Windows.Controls;
 
 
@@ -51,10 +52,17 @@ namespace Darkrune_Development_Tools.Views
             }
         }
 
-        private void GoHome_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void GoHome_Click(object sender, RoutedEventArgs e)
         {
             var home = new Home();
             NavigationService.Navigate(home);
+        }
+
+        private void ButtonSetClickStyle_Clicked(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            var style = (Style)Application.Current.Resources["ListViewBtn_Clicked"];
+            btn.Style = style;
         }
     }
 }

@@ -17,49 +17,39 @@
     <Page.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            
-            <DockPanel>
-                <Menu DockPanel.Dock="Top">
-                    <MenuItem Header="_File">
-                        <MenuItem Header="_Open" Command="Open" />
-                        <Separator />
-                        <MenuItem Header="_Go to Home" Click="GoHome_Click" />
-                    </MenuItem>
-                </Menu>
-            </DockPanel>
 
-            <StackPanel Grid.Row="1">
-                <ListView x:Name="ConfigList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="5">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Key">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBox x:Name="KeyTextBox" Text="{Binding Key}" IsReadOnly="True" Padding="2" HorizontalAlignment="Stretch" />
-                                            <Button Content="Copy" HorizontalAlignment="Right" Command="{Binding CopyCommand}" CommandParameter="{Binding ElementName=KeyTextBox}" DataContext="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:DevOpsConfigSettings}}}" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            <GridViewColumn Header="Value">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBox x:Name="ValueTextBox" Text="{Binding Value}" IsReadOnly="True" Padding="2" />
-                                            <Button Content="Copy" HorizontalAlignment="Right" Command="{Binding CopyCommand}" CommandParameter="{Binding ElementName=ValueTextBox}" DataContext="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:DevOpsConfigSettings}}}" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-            </StackPanel>
-            
+            <Button Content="Select config file" Margin="0,3,0,3" Command="Open" />
+
+            <ListView x:Name="ConfigList" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}" Style="{StaticResource ScrollableListView}" Margin="5">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Key">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Content="Copy" HorizontalAlignment="Right" Command="{Binding CopyCommand}" CommandParameter="{Binding ElementName=KeyTextBox}" DataContext="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:DevOpsConfigSettings}}}" Click="ButtonSetClickStyle_Clicked" />
+                                        <TextBox x:Name="KeyTextBox" Text="{Binding Key}" IsReadOnly="True" Padding="2" HorizontalAlignment="Stretch" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Value">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Content="Copy" HorizontalAlignment="Right" Command="{Binding CopyCommand}" CommandParameter="{Binding ElementName=ValueTextBox}" DataContext="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:DevOpsConfigSettings}}}"  Click="ButtonSetClickStyle_Clicked" />
+                                        <TextBox x:Name="ValueTextBox" Text="{Binding Value}" IsReadOnly="True" Padding="2" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
         </Grid>
     </Page.Content>
 </Page>

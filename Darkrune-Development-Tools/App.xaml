@@ -4,9 +4,21 @@
              xmlns:local="clr-namespace:Darkrune_Development_Tools"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <!-- Button -->
+        <Style x:Key="ListViewBtn_Clicked" TargetType="Button">
+            <Setter Property="Background" Value="Green" />
+        </Style>
+        
         <!-- Grid -->
         <Style x:Key="GridPageStyle" TargetType="Grid">
             <Setter Property="Margin" Value="5" />
+        </Style>
+        
+        <!-- ListView -->
+        <Style x:Key="ScrollableListView" TargetType="ListView">
+            <Setter Property="VerticalContentAlignment" Value="Top" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+            <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
         </Style>
         
         <!-- Textblock -->
