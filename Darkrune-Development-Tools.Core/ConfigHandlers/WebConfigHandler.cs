@@ -23,9 +23,14 @@ namespace Darkrune_Development_Tools.Core.ConfigHandlers
                     XmlNodeList elements = appsettings.SelectNodes("add");
                     foreach (XmlElement element in elements)
                     {
+                        string key = element.GetAttribute("key");
+                        bool keyExist = _keyValues.Any(x => x.Key == key);
+                        if (keyExist)
+                            continue;
+
                         ConfigInfoDto configInfoDto = new()
                         {
-                            Key = element.GetAttribute("key"),
+                            Key = key,
                             Value = element.GetAttribute("value")
                         };
                         _keyValues.Add(configInfoDto);
@@ -38,6 +43,11 @@ namespace Darkrune_Development_Tools.Core.ConfigHandlers
                     var elements = connectionStrings.SelectNodes("add");
                     foreach (XmlElement element in elements)
                     {
+                        string key = element.GetAttribute("name");
+                        bool keyExist = _keyValues.Any(x => x.Key == key);
+                        if (keyExist)
+                            continue;
+
                         ConfigInfoDto configInfoDto = new()
                         {
                             Key = element.GetAttribute("name"),

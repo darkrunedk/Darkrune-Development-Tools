@@ -37,6 +37,10 @@ namespace Darkrune_Development_Tools.Core.ConfigHandlers
                 else
                 {
                     string key = GetKey(property, name);
+                    bool keyExist = _keyValues.Any(x => x.Key == key);
+                    if (keyExist)
+                        continue;
+
                     _keyValues.Add(new ConfigInfoDto
                     {
                         Key = key,

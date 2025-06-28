@@ -21,7 +21,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Button Content="Select config file" Margin="0,3,0,3" Command="Open" />
+            <Button Content="Select config file" Margin="3" Command="Open" />
 
             <ListView x:Name="ConfigList" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}" Style="{StaticResource ScrollableListView}" Margin="5">
                 <ListView.View>
