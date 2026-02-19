@@ -22,9 +22,11 @@
                 <TextBlock>
                     <Run Text="Available tools:" />
                     <LineBreak />
-                    <Run Text="Devops settings - Useful for exporting settings from web.config/appsettings.json files to DevOps" />
+                    <Run Text="Devops settings - Useful for exporting settings from web.config/appsettings.json files to DevOps." />
                     <LineBreak />
-                    <Run Text="String manipulation - Useful for formatting text like a list of ids to a comma seperated string used in SQL" />
+                    <Run Text="String manipulation - Useful for formatting text like a list of ids to a comma seperated string used in SQL." />
+                    <LineBreak />
+                    <Run Text="XML value encoder - Useful for encoding values to be used in XML files like web.config files." />
                 </TextBlock>
             </StackPanel>
         </Grid>
