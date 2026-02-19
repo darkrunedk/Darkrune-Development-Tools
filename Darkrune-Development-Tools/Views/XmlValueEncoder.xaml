@@ -20,7 +20,7 @@
 
         <TextBox x:Name="FromTxtBox" Grid.Row="0" Grid.Column="0" Margin="0,0,5,0" Padding="2" AcceptsReturn="True" AcceptsTab="True" />
 
-        <TextBox x:Name="ToTxtBox" Grid.Row="0" Grid.Column="1" Margin="5,0,0,0" Padding="2" AcceptsReturn="True" AcceptsTab="True" IsReadOnly="True" />
+        <TextBox x:Name="ToTxtBox" Grid.Row="0" Grid.Column="1" Margin="5,0,0,0" Padding="2" AcceptsReturn="True" AcceptsTab="True" TextWrapping="Wrap" IsReadOnly="True" />
 
         <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
             <Button x:Name="ExecuteActionBtn" Content="Submit" VerticalAlignment="Center" Margin="4,0,0,0" Padding="4,2,4,2" Click="ExecuteActionBtn_Click" />
