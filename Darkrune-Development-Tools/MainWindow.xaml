@@ -20,6 +20,7 @@
                     <MenuItem Header="_DevOps Settings" Click="MenuItem_Click" CommandParameter="/Views/DevOpsConfigSettings.xaml" />
                     <MenuItem Header="_String Manipulation" Click="MenuItem_Click" CommandParameter="/Views/StringManipulation.xaml" />
                     <MenuItem Header="_XML Value Encoder" Click="MenuItem_Click" CommandParameter="/Views/XmlValueEncoder.xaml" />
+                    <MenuItem Header="_File Search" Click="MenuItem_Click" CommandParameter="/Views/FileSearch.xaml" />
                 </MenuItem>
                 <MenuItem Header="Check Github" Click="CheckGithub_Click" />
             </Menu>
