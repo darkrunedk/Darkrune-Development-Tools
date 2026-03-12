@@ -23,6 +23,12 @@
             <Button x:Name="SelectDirBtn" Content="Select Directory" Click="SelectDirBtn_Click" />
             <TextBlock x:Name="SelectedDirTxt" Text="No directory selected..." Margin="0,4,0,0" TextWrapping="Wrap" />
             <TextBox x:Name="SearchPatternTxtBox" Margin="0,4,0,0" Padding="2" extensions:PlaceholderService.PlaceholderText="File name (e.g. test.txt)" />
+
+            <TextBlock>
+                <Run x:Name="SearchCount" Text="?" />
+                <Run Text=" / " />
+                <Run x:Name="TotalCount" Text="?" />
+            </TextBlock>
         </StackPanel>
 
         <ListView x:Name="SearchResultList" Grid.Row="0" Grid.Column="1" Margin="4,0,0,0" ItemsSource="{Binding SearchResults}" SelectionChanged="SearchResultList_SelectionChanged" />

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 
 namespace Darkrune_Development_Tools.Views
 {
@@ -58,17 +59,29 @@ namespace Darkrune_Development_Tools.Views
                 SearchResults.Add(file);
             });
 
-            await SearchAsync(SelectedDirTxt.Text, SearchPatternTxtBox.Text, progress);
+            int count = 0;
+            var searchCountProgress = new Progress<int>(countProg =>
+            {
+                count++;
+                SearchCount.Text = count.ToString();
+            });
+
+            await SearchAsync(SelectedDirTxt.Text, SearchPatternTxtBox.Text, progress, searchCountProgress, TotalCount);
 
             ExecuteActionBtn.IsEnabled = true;
         }
 
-        public static async Task SearchAsync(string root, string query, IProgress<string> progress)
+        public static async Task SearchAsync(string root, string query, IProgress<string> progress, IProgress<int> searchCountProgress, Run totalField)
         {
             await Task.Run(() =>
             {
-                foreach (var file in Directory.EnumerateFiles(root, "*", SearchOption.AllDirectories))
+                var files = Directory.EnumerateFiles(root, "*", SearchOption.AllDirectories);
+                totalField.Text = files.Count().ToString();
+
+                foreach (var file in files)
                 {
+                    searchCountProgress.Report(1);
+
                     if (Path.GetFileName(file).Contains(query, StringComparison.OrdinalIgnoreCase))
                     {
                         progress.Report(file);
