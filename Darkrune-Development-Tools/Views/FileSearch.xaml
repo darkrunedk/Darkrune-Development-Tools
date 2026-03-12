@@ -25,9 +25,8 @@
             <TextBox x:Name="SearchPatternTxtBox" Margin="0,4,0,0" Padding="2" extensions:PlaceholderService.PlaceholderText="File name (e.g. test.txt)" />
 
             <TextBlock>
+                <Run Text="Files processed:" />
                 <Run x:Name="SearchCount" Text="?" />
-                <Run Text=" / " />
-                <Run x:Name="TotalCount" Text="?" />
             </TextBlock>
         </StackPanel>
 

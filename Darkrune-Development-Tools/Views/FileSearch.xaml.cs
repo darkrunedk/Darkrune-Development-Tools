@@ -66,18 +66,16 @@ namespace Darkrune_Development_Tools.Views
                 SearchCount.Text = count.ToString();
             });
 
-            await SearchAsync(SelectedDirTxt.Text, SearchPatternTxtBox.Text, progress, searchCountProgress, TotalCount);
+            await SearchAsync(SelectedDirTxt.Text, SearchPatternTxtBox.Text, progress, searchCountProgress);
 
             ExecuteActionBtn.IsEnabled = true;
         }
 
-        public static async Task SearchAsync(string root, string query, IProgress<string> progress, IProgress<int> searchCountProgress, Run totalField)
+        public static async Task SearchAsync(string root, string query, IProgress<string> progress, IProgress<int> searchCountProgress)
         {
             await Task.Run(() =>
             {
                 var files = Directory.EnumerateFiles(root, "*", SearchOption.AllDirectories);
-                totalField.Text = files.Count().ToString();
-
                 foreach (var file in files)
                 {
                     searchCountProgress.Report(1);
