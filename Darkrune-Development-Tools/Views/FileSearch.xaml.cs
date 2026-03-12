@@ -53,6 +53,7 @@ namespace Darkrune_Development_Tools.Views
 
             SearchResults.Clear();
             ExecuteActionBtn.IsEnabled = false;
+            Loader.Visibility = Visibility.Visible;
 
             var progress = new Progress<string>(file =>
             {
@@ -68,6 +69,7 @@ namespace Darkrune_Development_Tools.Views
 
             await SearchAsync(SelectedDirTxt.Text, SearchPatternTxtBox.Text, progress, searchCountProgress);
 
+            Loader.Visibility = Visibility.Collapsed;
             ExecuteActionBtn.IsEnabled = true;
         }
 

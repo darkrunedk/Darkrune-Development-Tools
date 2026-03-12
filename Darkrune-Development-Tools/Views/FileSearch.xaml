@@ -28,6 +28,7 @@
                 <Run Text="Files processed:" />
                 <Run x:Name="SearchCount" Text="?" />
             </TextBlock>
+            <ProgressBar x:Name="Loader" IsIndeterminate="True" Height="6" Visibility="Collapsed" Margin="0,4,0,0" />
         </StackPanel>
 
         <ListView x:Name="SearchResultList" Grid.Row="0" Grid.Column="1" Margin="4,0,0,0" ItemsSource="{Binding SearchResults}" SelectionChanged="SearchResultList_SelectionChanged" />
